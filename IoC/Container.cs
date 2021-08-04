@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace IoC
 {
-    public class Container
+    public partial class Container
     {
-        private readonly Dictionary<Type, Type> _map = new();
+        public Dictionary<Type, Type> Map { get; set; } = new();
 
         public ContainerBuilder For<T>()
         {
@@ -14,7 +14,7 @@ namespace IoC
 
         public T Resolve<T>()
         {
-            if(_map.TryGetValue(typeof(T), out var type))
+            if(Map.TryGetValue(typeof(T), out var type))
             {
                 return (T) CreateInstance(type);
             }
@@ -28,31 +28,5 @@ namespace IoC
         {
             return Activator.CreateInstance(type);
         }
-
-        public class ContainerBuilder
-        {
-            private readonly Container _container;
-            private readonly Type _sourceType;
-
-            public ContainerBuilder(Container container, Type sourceType)
-            {
-                _container = container;
-                _sourceType = sourceType;
-            }
-
-            public ContainerBuilder Use<T>()
-            {
-                _container._map.Add(_sourceType, typeof(T));
-                return this;
-            }
-        }
-    }
-
-    public class Logger : ILogger
-    {
-    }
-
-    public interface ILogger
-    {
     }
 }
