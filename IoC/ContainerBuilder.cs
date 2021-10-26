@@ -6,13 +6,13 @@ namespace IoC
     {
         private readonly Container _container;
         private readonly Type _sourceType;
-
+    
         public ContainerBuilder(Container container, Type sourceType)
         {
             _container = container;
             _sourceType = sourceType;
         }
-
+    
         public ContainerBuilder Use<T>()
         {
             _container.Map.Add(_sourceType, typeof(T));
