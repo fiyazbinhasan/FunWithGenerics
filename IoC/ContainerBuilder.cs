@@ -13,10 +13,9 @@ namespace IoC
             _sourceType = sourceType;
         }
     
-        public ContainerBuilder Use<T>()
+        public void Use<T>()
         {
             _container.Map.Add(_sourceType, typeof(T));
-            return this;
         }
     }
 }

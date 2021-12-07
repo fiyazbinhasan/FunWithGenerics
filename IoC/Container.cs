@@ -3,30 +3,28 @@ using System.Collections.Generic;
 
 namespace IoC
 {
-public class Container
-{
-    public Dictionary<Type, Type> Map { get; set; } = new();
-
-    public ContainerBuilder For<T>()
+    public class Container
     {
-        return new ContainerBuilder(this, typeof(T));
-    }
+        public Dictionary<Type, Type> Map { get; } = new();
 
-    public T Resolve<T>()
-    {
-        if(Map.TryGetValue(typeof(T), out var type))
+        public ContainerBuilder For<T>()
         {
-            return (T) CreateInstance(type);
+            return new ContainerBuilder(this, typeof(T));
         }
-        else
+
+        public T Resolve<T>()
         {
+            if (Map.TryGetValue(typeof(T), out var type))
+            {
+                return (T) CreateInstance(type);
+            }
+
             throw new InvalidOperationException();
         }
-    }
 
-    private object CreateInstance(Type type)
-    {
-        return Activator.CreateInstance(type);
+        private static object CreateInstance(Type type)
+        {
+            return Activator.CreateInstance(type);
+        }
     }
-}
 }
