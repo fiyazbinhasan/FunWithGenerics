@@ -1,5 +1,5 @@
-﻿var factory = new Factory<Bar>();
-Console.WriteLine(factory);
+﻿var type = new Factory<Bar>().Create();
+Console.WriteLine(type);
 
 public class Foo
 {
