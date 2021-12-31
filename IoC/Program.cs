@@ -7,7 +7,12 @@ namespace IoC
     {
         static void Main(string[] args)
         {
-            
+            var ioc = new Container();
+            ioc.For<ILogger>().Use<Logger>();
+
+            var logger = ioc.Resolve<ILogger>();
+
+            Console.WriteLine(logger.GetType() == typeof(Logger));
         }
     }
 }
