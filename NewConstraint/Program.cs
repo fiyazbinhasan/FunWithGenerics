@@ -1,5 +1,8 @@
-﻿var type = new Factory<Bar>().Create();
-Console.WriteLine(type);
+﻿var bar = new Factory<Bar>().Create();
+Console.WriteLine(bar);
+
+// Invalid, Bar does not define a default/empty constructor
+// var foo = new Factory<Foo>().Create();
 
 public class Foo
 {

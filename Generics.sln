@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMediatRFeatures", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceConstraint", "InterfaceConstraint\InterfaceConstraint.csproj", "{76DE096B-F9FA-4B06-9EA8-5FE4B1E00BAD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TypeConstraints", "TypeConstraints", "{3A448D7F-9B56-4028-A718-285E0E99EA81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,5 +41,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {00D2924A-9CBF-4F09-844F-9517B6215093}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76DE096B-F9FA-4B06-9EA8-5FE4B1E00BAD} = {3A448D7F-9B56-4028-A718-285E0E99EA81}
+		{DA5CFEF2-F781-46CC-B571-6A2CAC720574} = {3A448D7F-9B56-4028-A718-285E0E99EA81}
 	EndGlobalSection
 EndGlobal
